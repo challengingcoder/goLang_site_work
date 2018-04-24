@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package store;
+
+service Store {
+    rpc GetStoreDetails(DetailsRequest) returns (DetailsResponse);
+}
+
+message DetailsRequest {
+    string sku = 1;
+}
+
+message DetailsResponse {
+    StoreDetails details = 1;
+}
+
+message StoreDetails {
+    string sku = 1;
+    uint32 stock_remaining = 2;
+    string manufacturer = 3;
+    string model_number = 4;
+}
